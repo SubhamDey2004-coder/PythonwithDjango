@@ -3,36 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Navbar</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.5/dist/tailwind.min.css" rel="stylesheet">
+    <title>Dark Mode Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 12px;
+        }
+        .navbar {
+            background-color: #00e1ff;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding-right: 171px;
+        }
+        .navbar .brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        .navbar .nav-links p {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .navbar .nav-links p:hover {
+            color: #d1d5db;
+        }
+        .navbar .actions {
+            display: flex;
+            gap: 16px;
+        }
+        .navbar button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .navbar .signup {
+            background-color: purple;
+            color: #fff;
+        }
+        .navbar .signup:hover {
+            background-color: #a32cc4;
+        }
+        .navbar .mode {
+            background-color: #444;
+            color: white;
+        }
+        .navbar .mode:hover {
+            background-color: #666;
+        }
+    </style>
 </head>
 <body>
-
-    <nav class="bg-blue-600 text-white flex justify-between items-center p-4 shadow-md">
-        <span class="text-2xl font-bold">Website</span>
-        
-        <div class="flex space-x-6">
-            <p class="hover:text-gray-300 cursor-pointer">Home</p>
-            <p class="hover:text-gray-300 cursor-pointer">Contact</p>
-            <p class="hover:text-gray-300 cursor-pointer">Product</p>
-            <p class="hover:text-gray-300 cursor-pointer">Services</p>
+    <nav class="navbar">
+        <span class="brand">Website</span>
+        <div class="nav-links">
+            <p>Home</p>
+            <p>Contact</p>
+            <p>Product</p>
+            <p>Services</p>
         </div>
-        
-        <div class="flex space-x-4">
-            <button class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
-                Sign up
-            </button>
-            <button class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
-                Mode
-            </button>
-            <button onclick="hello()">Onclick</button>
+        <div class="actions">
+            <button class="signup">Sign up</button>
+            <button class="mode" onclick="toggleDarkMode()">Mode</button>
+            <!-- <button onclick="hello()">Onclick</button> -->
         </div>
     </nav>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+        
+        window.onload = function() {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+        }
+    </script>
 </body>
-<script>
-    function hello(){
-        console.log("Hello");
-    }
-    hello()
-</script>
 </html>

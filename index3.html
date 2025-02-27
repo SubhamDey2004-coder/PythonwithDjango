@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id="id1">First para with id</p>
+        <p id="id2">Second para with id</p>
+        <p class="class1">Third para with class</p>
+        <p class="class2">Fourth para with class</p>
+        <button class="btn"></button>
+    </div>
+    <script>
+        // let dom1 = document.getElementById("id1");
+        // console.log(dom1);
+        // let elems = document.getElementsByClassName("class1");
+        // let queryelems = document.querySelector(".class1");
+
+        let firstPara = document.getElementById("id1")
+        // firstPara.innerText = "new text";
+         firstPara.innerHTML = "<b> this is bold text </b>";
+         firstPara.style.color = "Red";
+         firstPara.style.backgroundColor = "yellow";
+
+
+    </script>
+</body>
+</html>
