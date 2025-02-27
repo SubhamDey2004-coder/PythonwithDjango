@@ -6,24 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <p id="id1">First para with id</p>
-        <p id="id2">Second para with id</p>
-        <p class="class1">Third para with class</p>
-        <p class="class2">Fourth para with class</p>
-        <button class="btn"></button>
-    </div>
+    <img id = "img" src="https://www.hubspot.com/hubfs/how-to-make-picture-into-link_4-1.webp">
+    <button id="btn">CLick here</button>
     <script>
-        // let dom1 = document.getElementById("id1");
-        // console.log(dom1);
-        // let elems = document.getElementsByClassName("class1");
-        // let queryelems = document.querySelector(".class1");
-
-        let firstPara = document.getElementById("id1")
-        // firstPara.innerText = "new text";
-         firstPara.innerHTML = "<b> this is bold text </b>";
-         firstPara.style.color = "Red";
-         firstPara.style.backgroundColor = "yellow";
+        document.getElementById("btn").addEventListener('click',function(){
+            document.getElementById('img').src = 'https://media.istockphoto.com/id/1363689354/photo/aerial-view-on-green-pine-forest.jpg?s=612x612&w=0&k=20&c=rOgHrNmyYzi18J125ifBXXbRV_XhHUlpLqEDpu8QXDc='
+        })
 
 
     </script>
